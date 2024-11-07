@@ -1,0 +1,14 @@
+<main>
+  <h1>Users</h1>
+  <div class="list">
+    <% @users.each do |user| %>
+      <% dashed_name = user[:user_name].downcase.sub(' ', '-') %>
+      <%= link_to user_path(user), id: user[:user_name], class: "list-item" do %>
+        <div>
+          <%= image_tag user[:img_url], alt: user[:user_name], style: "view-transition-name: #{dashed_name}-img" %>
+          <p style="view-transition-name: <%= dashed_name %>-name"><%= user[:user_name] %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</main>

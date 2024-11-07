@@ -1,0 +1,124 @@
+// Sassy
+/* ------------------ */
+/* Reset              */
+/* ------------------ */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --sm: 640px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1280px;
+  --max-width: 1280px;
+}
+
+* {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Set up the body */
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+/* Make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove animations for perople who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: 0.01ms !important;
+  }
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: auto;
+  padding-block: 2rem;
+}
+
+.list {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.list-item {
+  height: 50px;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  & img {
+    height: 50px;
+  }
+}
+
+.user-img {
+  height: 200px;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  align-items: center;
+
+  & h1 {
+    text-align: center;
+  }
+}

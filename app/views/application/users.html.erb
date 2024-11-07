@@ -1,0 +1,24 @@
+<main>
+  <div class='main-container'>
+    <aside>
+      <h1 style="view-transition-name: <%= @user_name.downcase.sub(' ', '-') %>-name"><%= @user_name %></h1>
+      <img style="view-transition-name: <%= @user_name.downcase.sub(' ', '-') %>-img" class="user-img" src="<%= @img_url %>" alt="">
+    </aside>
+    <p>
+    Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+    </p>
+  </div>
+  <div class="list">
+    <% @users.each do |user| %>
+      <% if user[:user_name] != @user_name %>
+        <% dashed_name = user[:user_name].downcase.sub(' ', '-') %>
+        <%= link_to user_path(user), id: user[:user_name], class: "list-item", data: { turbo_action: "replace" } do %>
+          <div>
+            <%= image_tag user[:img_url], alt: user[:user_name], style: "view-transition-name: #{dashed_name}-img" %>
+            <p style="view-transition-name: <%= dashed_name %>-name"><%= user[:user_name] %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</main>
